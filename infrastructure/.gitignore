@@ -4,3 +4,6 @@
 # Sensitive
 *.tfvars*
 *.tfstate*
+
+# Keyfiles
+ida_rsa*
