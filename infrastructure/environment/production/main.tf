@@ -1,16 +1,11 @@
-terraform {
-  required_providers {
-    hcloud = {
-      source  = "hetznercloud/hcloud"
-      version = "~> 1.45"
-    }
+resource "hcloud_server" "web_app" {
+  name = "web-app"
+  server_type = "cax21"
+  image = "debian-12"
+  location = "hel1"
+
+  public_net {
+    ipv4_enabled = true
+    ipv6_enabled = false
   }
-}
-
-variable "hcloud_token" {
-  sensitive = true
-}
-
-provider "hcloud" {
-  token = var.hcloud_token
 }
