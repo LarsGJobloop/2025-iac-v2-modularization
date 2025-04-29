@@ -17,13 +17,13 @@ runcmd:
     sudo apt-get install -y dotnet-runtime-9.0
 
   # Download application source code
-  - git clone https://github.com/LarsGJobloop/2025-iac-v2-modularization.git /var/app-code
+  - git clone ${application_source} /var/app-code
 
   # Build the application
-  - dotnet publish /var/app-code/src/Api --output /var/app
+  - dotnet publish /var/app-code/${project_path} --output /var/app
 
   # Run the application, as service
-  - nohup dotnet /var/app/Api.dll
+  - nohup dotnet /var/app/${project_name}
 
   # How to update the application and when
   # Setup FireWall, Uncomplicated FireWall (ufw)
